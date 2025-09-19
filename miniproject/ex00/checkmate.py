@@ -12,6 +12,7 @@ def find_king(board):
         return None
 
 
+
 def pawn_check(board, kx, ky):
     n = len(board)
     directions = [(1, -1), (1, 1)]
@@ -22,6 +23,7 @@ def pawn_check(board, kx, ky):
             if board[x][y] == "P":
                 return True
     return False
+
 
 
 def rook_check(board, kx, ky):
@@ -42,6 +44,7 @@ def rook_check(board, kx, ky):
     return False
 
 
+
 def bishop_check(board, kx, ky):
     n = len(board)
     directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
@@ -58,6 +61,7 @@ def bishop_check(board, kx, ky):
                     return True
                 break
     return False
+
 
 
 def queen_check(board, kx, ky):
@@ -81,8 +85,9 @@ def queen_check(board, kx, ky):
     return False
 
 
-def checkmate(board_str):
 
+def checkmate(board_str):
+    
     raw_rows = board_str.strip().split("\n")
 
     board = [list(r) for r in raw_rows]
