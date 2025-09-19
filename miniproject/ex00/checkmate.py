@@ -14,7 +14,7 @@ def find_king(board):
 
 def pawn_check(board, kx, ky):
     n = len(board)
-    directions = [(-1, -1), (-1, 1)]
+    directions = [(1, -1), (1, 1)]
     for dx, dy in directions:
         x = kx + dx
         y = ky + dy
@@ -82,15 +82,10 @@ def queen_check(board, kx, ky):
 
 
 def checkmate(board_str):
-    raw_rows = board_str.strip().split("\n")
-    rows = []
-    for r in raw_rows:
-        r = r.rstrip("\r").rstrip(" ")
-        rows.append(r)
 
-    board = []
-    for r in rows:
-        board.append(list(r))
+    raw_rows = board_str.strip().split("\n")
+
+    board = [list(r) for r in raw_rows]
 
     n = len(board)
 
@@ -113,8 +108,8 @@ def checkmate(board_str):
     if king is None:
         print("Error")
         return
+    
     kx, ky = king
-
     if pawn_check(board, kx, ky):
         print("Success")
     elif rook_check(board, kx, ky):
